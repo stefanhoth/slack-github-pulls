@@ -1,0 +1,14 @@
+{
+  "name": "slack-pullrequests",
+  "version": "0.0.1",
+  "description": "Fetches the open pull requests from the configured github org",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stefan Hoth <stefan@novoda.com>",
+  "license": "MIT",
+  "dependencies": {
+    "octonode": "^0.7.9"
+  }
+}
