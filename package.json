@@ -9,6 +9,8 @@
   "author": "Stefan Hoth <stefan@novoda.com>",
   "license": "MIT",
   "dependencies": {
-    "octonode": "^0.7.9"
+    "octonode": "^0.7.9",
+    "request": "^2.79.0",
+    "request-promise-native": "^1.0.3"
   }
 }
