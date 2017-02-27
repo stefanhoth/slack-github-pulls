@@ -15,6 +15,9 @@ module.exports = {
   sendSuccess: (message) => {
     sendSuccess(message)
   },
+  badJSON: (text) => {
+    return sendError(text)
+  },
   goodJSON: (text) => {
     return buildGoodResponse(text);
   }

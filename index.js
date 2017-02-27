@@ -13,7 +13,7 @@ exports.handler = (event, context, callback) => {
 
     if (err) {
       console.error(err);
-      callback(err);
+      callback(slack.badJSON(err));
       return;
     }
 
