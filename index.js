@@ -1,18 +1,38 @@
 'use strict';
 
-let github_pulls = require('./github-pulls.js')
+const github_pulls = require('./github-pulls.js')
+const slack = require('./slack.js')
 
-//exports.handler = (event, context, callback) => {
+let command;
+
+exports.handler = (event, context, callback) => {
 
   console.log("Starting...")
-  github_pulls.load((err, results) => {
 
-      if(err){
+  slack.digestPush(event, (err, config) => {
+
+    if (err) {
+      console.error(err);
+      callback(err);
+      return;
+    }
+
+    callback(null, slack.goodJSON("Loading PRs..."));
+
+    //YAGNI? :-)
+    command = config;
+
+    github_pulls.load((err, results) => {
+
+      if (err) {
         console.error(err);
+        slack.sendError(err);
         return;
       }
 
       console.log(results);
-  })
+      slack.sendSuccess(results);
+    })
+  });
 
-//}
+}

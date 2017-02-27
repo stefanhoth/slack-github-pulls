@@ -3,10 +3,15 @@
 let request = require('request-promise');
 
 module.exports = {
-  json: do_json_post
+  json: (url, json) => {
+    do_json_post(url, json)
+  }
 }
 
 function do_json_post(url, json) {
+
+  console.log("url=", url);
+  console.log("json=", json);
 
   var options = {
     uri: url,
